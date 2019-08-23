@@ -33,7 +33,7 @@
 
           <ul class="nav navbar-nav navbar-right">
             <li class="active">
-              <a href="#">欢迎：张三管理员</a>
+              <a href="#">欢迎：{{admin.username}}管理员</a>
             </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">个人中心<strong class="caret"></strong></a>
@@ -66,7 +66,28 @@
 
 <script>
   export default {
-    name: 'App'
+    name: 'App',
+    data () {
+      return {
+         admin:{
+           username:"ssss"
+         }
+      }
+    },
+    created:function(){
+       this.getinfo();
+    },
+    methods:{
+      getinfo:function(){
+        this.$http.get('http://127.0.0.1:8085/admin/getInfo').then(
+          function(result){
+            this.admin.username=result.body.username;
+            alert(result.body);
+          },function(error){
+            alert("请求失败");
+          })
+      }
+    }
   }
 </script>
 
