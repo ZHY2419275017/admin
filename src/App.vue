@@ -29,6 +29,9 @@
             <li>
                <RouterLink to="/orderlist">订单管理</RouterLink>
             </li>
+            <li>
+               <RouterLink to="/commentlist">评价管理</RouterLink>
+            </li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
@@ -82,7 +85,7 @@
         this.$http.get('http://127.0.0.1:8085/admin/getInfo').then(
           function(result){
             this.admin.username=result.body.username;
-            alert(result.body);
+            /* alert(result.body); */
           },function(error){
             alert("请求失败");
           })

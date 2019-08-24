@@ -6,6 +6,7 @@ import addproduct from '@/components/addproduct'
 import orderlist from '@/components/orderlist'
 import upload from '@/components/upload'
 import login from '@/components/login'
+import commentlist from '@/components/commentlist'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/',
       name: 'login',
       component: login
+    },
+    {
+      path: '/commentlist',
+      name: 'commentlist',
+      component: commentlist
     }
   ]
 })
