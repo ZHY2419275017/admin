@@ -5,9 +5,9 @@
 				<thead>
 					<tr >
 						<th style="text-align: center;">OrderNo</th>
-						<th style="text-align: center;">ProductId</th>
+						<th style="text-align: center;">Product</th>
 						<th style="text-align: center;">UserId</th>
-						<th style="text-align: center;">AddressId</th>
+						<th style="text-align: center;">Address</th>
 						<th style="text-align: center;">Status</th>
 						
 					</tr>
@@ -15,9 +15,9 @@
 				<tbody>
 					<tr v-for="order in orders">
 						<td>{{order.orderNo}}</td>
-						<td>{{order.product.name}}</td>
 						<td>{{order.userId}}</td>
-						<td>{{order.addressId}}</td>
+						<td>{{order.product.name}}</td>
+						<td>{{order.address}}</td>
 						
 						<td v-if="order.status==1"><button @click="send(order.id)">发货</button></td>
 						<td v-else-if="order.status==0">未付款</td>
@@ -64,6 +64,7 @@ export default {
   				'status':2
   			}
   		}).then(function(ret){
+  			this.orders=ret.body;
   			alert("已发货");
   		},function(){})
   	}
