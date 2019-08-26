@@ -7,6 +7,7 @@ import orderlist from '@/components/orderlist'
 import upload from '@/components/upload'
 import login from '@/components/login'
 import commentlist from '@/components/commentlist'
+import updateUser from '@/components/updateUser'
 
 Vue.use(Router)
 
@@ -46,6 +47,11 @@ export default new Router({
       path: '/commentlist',
       name: 'commentlist',
       component: commentlist
+    },
+     {
+      path: '/updateUser',
+      name: 'updateUser',
+      component: updateUser
     }
   ]
 })
