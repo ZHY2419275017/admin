@@ -9,7 +9,6 @@
 						<th style="text-align: center;">UserId</th>
 						<th style="text-align: center;">Address</th>
 						<th style="text-align: center;">Status</th>
-						
 					</tr>
 				</thead>
 				<tbody>
@@ -18,19 +17,19 @@
 						<td>{{order.userId}}</td>
 						<td>{{order.product.name}}</td>
 						<td>{{order.address}}</td>
-						
+
 						<td v-if="order.status==1"><button @click="send(order.id)">发货</button></td>
 						<td v-else-if="order.status==0">未付款</td>
 						<td v-else-if="order.status==2">已发货</td>
-						
+
 					</tr>
-    
+
 
 				</tbody>
 			</table>
       <ul class="pagination" v-for="index in size">
 				<li><a href="#" @click="loadlist(index)">{{index}}</a></li>
-			
+
 			</ul>
   </div>
 </template>

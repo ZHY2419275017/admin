@@ -1,7 +1,7 @@
 <template>
  <div>
    <table class="table table-bordered">
-				<caption><h4 style="text-align: center;"><b>用户列表</b></h4></caption>
+				<caption><h4 style="text-align: center;"><b> <span class="glyphicon glyphicon-user"></span> 用户列表</b></h4></caption>
 				<thead>
 					<tr >
 						<th style="text-align: center;">用户名</th>
@@ -27,8 +27,8 @@
             <td v-if="user.role==1">用户</td>
 						<td>
 						  <router-link >跳转</router-link>
-							<button class="btn-danger btn"  @click="del(user.id)">删除</button>
-							<button class="btn-primary btn" @click="updateUser(user.id)">修改</button>
+							<button class="btn-danger btn"  @click="del(user.id)">  <span class="glyphicon glyphicon-remove"></span>删除</button>
+							<button class="btn-primary btn" @click="updateUser(user.id)">  <span class="glyphicon glyphicon-pencil"></span>修改</button>
 						</td>
 					</tr>
 

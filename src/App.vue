@@ -11,7 +11,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li>
-              <RouterLink to="/userlist">用户列表</RouterLink>
+              <RouterLink to="/userlist"> <span class="glyphicon glyphicon-user"></span> 用户管理</RouterLink>
             </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">商品管理<strong class="caret"></strong></a>
@@ -36,7 +36,7 @@
 
           <ul class="nav navbar-nav navbar-right">
             <li class="active">
-              <a href="#">欢迎：{{admin.username}}管理员</a>
+              <a href="#"> <span class="glyphicon glyphicon-user"></span> 欢迎：{{admin.username}}管理员</a>
             </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">个人中心<strong class="caret"></strong></a>
@@ -55,7 +55,7 @@
               <RouterLink to="/">登录</RouterLink>
             </li>
              <li class="active">
-              <a href="#">退出</a>
+              <a href="#"> <span class="glyphicon glyphicon-log-out"></span>退出</a>
             </li>
           </ul>
         </div>
@@ -73,7 +73,7 @@
     data () {
       return {
          admin:{
-           username:"ssss"
+           username:"请登录！"
          }
       }
     },

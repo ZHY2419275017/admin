@@ -8,7 +8,7 @@ Vue.use(resource)
 
 Vue.http.options.emulateJSON = true;//ajax发送post请求时必须加的一句话
 Vue.config.productionTip = false
-Vue.http.options.withCredential = true
+Vue.http.options.withCredentials = true
 
 /* eslint-disable no-new */
 new Vue({

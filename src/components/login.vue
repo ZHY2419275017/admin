@@ -67,6 +67,9 @@ export default {
                alert(result.bodyText);
                if(result.bodyText=='success'){
                  //转到成功页面
+                this.$router.push({
+                path:"/userlist"
+               })
                }
            },function(error){
                alert("请求失败");
