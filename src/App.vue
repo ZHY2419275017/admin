@@ -38,7 +38,7 @@
             <li class="active">
               <a href="#"> <span class="glyphicon glyphicon-user"></span> 欢迎：{{admin.username}}管理员</a>
             </li>
-            <li class="dropdown">
+           <!-- <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">个人中心<strong class="caret"></strong></a>
               <ul class="dropdown-menu">
                 <li>
@@ -50,12 +50,12 @@
                   <a href="#">修改密码</a>
                 </li>
               </ul>
-            </li>
+            </li> -->
             <li class="active" v-if="admin.username==null">
               <RouterLink to="/">登录</RouterLink>
             </li>
-             <li class="active">
-              <a href="#"><span class="glyphicon glyphicon-log-out"></span>退出</a>
+            <li class="active" v-if="admin.username!=null">
+              <a href="javascript:void(0)" v-on:click="logout"><span class="glyphicon glyphicon-log-out"></span>退出</a>
             </li>
           </ul>
         </div>
@@ -77,12 +77,21 @@
          }
       }
     },
-    created:function(){
-      this.getUsername()
+    mounted:function(){
+      this.getUsername(),
+      setInterval(this.getUsername(),500)
     },
     methods:{
       getUsername:function(){
-         this.admin.username=sessionStorage.getItem("username")
+         this.admin.username=sessionStorage.getItem("username");
+         router.go(0)
+      },
+      logout:function(){
+         sessionStorage.removeItem("username");
+         this.admin.username=sessionStorage.getItem("username");
+          this.$router.push({
+           path: "/"
+           })
       }
     }
 

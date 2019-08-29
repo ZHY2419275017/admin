@@ -9,7 +9,7 @@
 				<form action="loginServlet" method="post">
 
 					<div class="form-group has-feedback">
-						<label for="username">用户名{{admin.username}}</label>
+						<label for="username">用户名<!-- {{admin.username}} --></label>
 						<div class="input-group">
 							<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
 							<input v-model="admin.username" id="username" class="form-control" type="text" name="username" required autocomplete="off" maxlength="20" placeholder="请输入您的用户名">
@@ -20,7 +20,7 @@
 					</div>
 
 					<div class="form-group has-feedback">
-						<label for="password">密码{{admin.password}}</label>
+						<label for="password">密码<!-- {{admin.password}} --></label>
 						<div class="input-group">
 							<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
 							<input v-model="admin.password" id="password" class="form-control" name="password" required placeholder="请输入密码" maxlength="20" type="password">
@@ -70,7 +70,7 @@ export default {
                if(result.bodyText=='success'){
                  //转到成功页面
                  if(this.$route.query.redirect){
-                   console.log("跳")
+                  /* console.log("跳") */
                    var redirect = this.$route.query.redirect;
                    // console.log(typeof redirect)
                    this.$router.push({path:redirect});
