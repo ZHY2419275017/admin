@@ -65,16 +65,36 @@ export default {
              }
            }).then(function(result){
                alert(result.bodyText);
+               sessionStorage.setItem("username",this.admin.username)
+              // this.getinfo();
                if(result.bodyText=='success'){
                  //转到成功页面
-                this.$router.push({
-                path:"/userlist"
-               })
+                 if(this.$route.query.redirect){
+                   console.log("跳")
+                   var redirect = this.$route.query.redirect;
+                   // console.log(typeof redirect)
+                   this.$router.push({path:redirect});
+                 }else{
+                   this.$router.push({path:'/userlist'})
+                 }
+
                }
            },function(error){
                alert("请求失败");
            })
-        }
+        },
+        /* getinfo:function(){
+          this.$http.get('http://127.0.0.1:8085/admin/getInfo').then(
+            function(result){
+              if(result.body.username!==undefined){
+                sessionStorage.setItem("username",result.body.username);
+              }
+            },function(error){
+              alert("请求失败");
+            })
+        } */
+
+
 
       }
 

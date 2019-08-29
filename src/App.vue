@@ -51,11 +51,11 @@
                 </li>
               </ul>
             </li>
-            <li class="active">
+            <li class="active" v-if="admin.username==null">
               <RouterLink to="/">登录</RouterLink>
             </li>
              <li class="active">
-              <a href="#"> <span class="glyphicon glyphicon-log-out"></span>退出</a>
+              <a href="#"><span class="glyphicon glyphicon-log-out"></span>退出</a>
             </li>
           </ul>
         </div>
@@ -73,24 +73,19 @@
     data () {
       return {
          admin:{
-           username:"请登录！"
+           username:"请登录"
          }
       }
     },
     created:function(){
-       this.getinfo();
+      this.getUsername()
     },
     methods:{
-      getinfo:function(){
-        this.$http.get('http://127.0.0.1:8085/admin/getInfo').then(
-          function(result){
-            this.admin.username=result.body.username;
-            /* alert(result.body); */
-          },function(error){
-            alert("请求失败");
-          })
+      getUsername:function(){
+         this.admin.username=sessionStorage.getItem("username")
       }
     }
+
   }
 </script>
 

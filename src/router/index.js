@@ -8,6 +8,7 @@ import upload from '@/components/upload'
 import login from '@/components/login'
 import commentlist from '@/components/commentlist'
 import updateUser from '@/components/updateUser'
+import productupdate from '@/components/productupdate'
 
 Vue.use(Router)
 
@@ -16,22 +17,42 @@ export default new Router({
     {
       path: '/productlist',
       name: 'productlist',
-      component: productlist
+      component: productlist,
+      meta: {
+        requireAuth: true,  // 判断是否需要登录
+      },
+    },
+    {
+      path: '/productupdate',
+      name: 'productupdate',
+      component: productupdate,
+       meta: {
+        requireAuth: true,  // 判断是否需要登录
+      },
     },
      {
       path: '/userlist',
       name: 'userlist',
-      component: userlist
+      component: userlist,
+      meta: {
+        requireAuth: true,  // 判断是否需要登录
+      },
     },
     {
       path: '/addproduct',
       name: 'addproduct',
-      component: addproduct
+      component: addproduct,
+       meta: {
+        requireAuth: true,  // 判断是否需要登录
+      },
     },
     {
       path: '/orderlist',
       name: 'orderlist',
-      component: orderlist
+      component: orderlist,
+       meta: {
+        requireAuth: true,  // 判断是否需要登录
+      },
     },
     {
       path: '/upload',
@@ -46,12 +67,20 @@ export default new Router({
     {
       path: '/commentlist',
       name: 'commentlist',
-      component: commentlist
+      component: commentlist,
+      meta: {
+        requireAuth: true,  // 判断是否需要登录
+      },
     },
      {
       path: '/updateUser',
       name: 'updateUser',
-      component: updateUser
+      component: updateUser,
+       meta: {
+        requireAuth: true,  // 判断是否需要登录
+      },
     }
+
   ]
+
 })
