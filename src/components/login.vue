@@ -58,7 +58,7 @@ export default {
             if(this.admin.username == ''|| this.admin.password == ''){
                 alert("用户名或密码不能为空"); return;
             }
-           this.$http.get("http://127.0.0.1:8085/admin/login",{
+           this.$http.get("http://192.168.0.23:8085/admin/login",{
              params:{
                username:this.admin.username,
                password:this.admin.password
